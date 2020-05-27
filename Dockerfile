@@ -10,7 +10,7 @@ ADD srcs/config/ft_server.conf /etc/nginx/sites-enabled/ft_server.conf
 RUN rm -f /etc/nginx/sites-enabled/default
 ADD srcs/config/config.inc.php ${SHARE}/phpMyAdmin/
 ADD srcs/permissions.sql /tmp
-RUN service mysql start && sleep 10 && mariadb < ${SHARE}/phpMyAdmin/sql/create_tables.sql && mariadb < /tmp/permissions.sql && rm -f /tmp/permissions.sql
+RUN service mysql start && sleep 20 && mariadb < ${SHARE}/phpMyAdmin/sql/create_tables.sql && mariadb < /tmp/permissions.sql && rm -f /tmp/permissions.sql
 ADD srcs/config/wp-config.php ${SHARE}/wordpress/wp-config.php
 ADD srcs/nginx.pem	/etc/ssl/certs
 ADD srcs/startup.sh /startup.sh
